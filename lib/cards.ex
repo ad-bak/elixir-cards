@@ -1,22 +1,18 @@
 defmodule Cards do
   def create_deck do
-    ["Ace of Spades", "Two of Spades", "Three of Spades", "Four of Spades",
-     "Five of Spades", "Six of Spades", "Seven of Spades", "Eight of Spades",
-     "Nine of Spades", "Ten of Spades", "Jack of Spades", "Queen of Spades",
-     "King of Spades", "Ace of Hearts", "Two of Hearts", "Three of Hearts",
-     "Four of Hearts", "Five of Hearts", "Six of Hearts", "Seven of Hearts",
-     "Eight of Hearts", "Nine of Hearts", "Ten of Hearts", "Jack of Hearts",
-     "Queen of Hearts", "King of Hearts", "Ace of Clubs", "Two of Clubs",
-     "Three of Clubs", "Four of Clubs", "Five of Clubs", "Six of Clubs",
-     "Seven of Clubs", "Eight of Clubs", "Nine of Clubs", "Ten of Clubs",
-     "Jack of Clubs", "Queen of Clubs", "King of Clubs", "Ace of Diamonds",
-     "Two of Diamonds", "Three of Diamonds", "Four of Diamonds", "Five of Diamonds",
-     "Six of Diamonds", "Seven of Diamonds", "Eight of Diamonds", "Nine of Diamonds",
-     "Ten of Diamonds", "Jack of Diamonds", "Queen of Diamonds", "King of Diamonds"]
+    suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
+    values = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
+    for suit <- suits, value <- values do
+      "#{value} of #{suit}"
+    end
   end
 
   def shuffle (deck) do
     Enum.shuffle(deck)
+  end
+
+  def contains?(deck, card) do
+    Enum.member?(deck, card)
   end
 
 end
