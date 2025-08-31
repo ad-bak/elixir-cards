@@ -1,0 +1,16 @@
+Queen of Hearts
+King of Diamonds
+King of Clubs
+Ace of Clubs
+King of Spades
+Queen of Spades
+Jack of Spades
+Ace of Diamonds
+King of Hearts
+Jack of Hearts
+Jack of Diamonds
+Ace of Spades
+Queen of Clubs
+Ace of Hearts
+Jack of Clubs
+Queen of Diamonds
