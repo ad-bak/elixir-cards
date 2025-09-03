@@ -1,4 +1,8 @@
 defmodule Cards do
+  @moduledoc """
+  Provides methods for creating and handling a deck of cards
+  """
+
   def create_deck do
     suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
     values = ["Ace", "Jack", "Queen", "King"]
@@ -8,10 +12,25 @@ defmodule Cards do
     end
   end
 
+  @doc """
+  Shuffles the deck of cards.
+  ## Examples
+
+      iex> deck = Cards.create_deck()
+      iex> Cards.shuffle(deck) != deck
+      true
+  """
   def shuffle(deck) do
     Enum.shuffle(deck)
   end
 
+  @doc """
+  Checks if a card is in the deck.
+
+  ## Examples
+      iex> deck = Cards.create_deck()
+      iex> Cards.contains?(deck, "Ace of Spades")
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
@@ -21,6 +40,14 @@ defmodule Cards do
     {hand, remaining_deck}
   end
 
+  @doc """
+    Saves the deck to a file.
+
+  ## Example
+      iex> deck = Cards.create_deck()
+      iex> Cards.save(deck, "my_deck")
+      :ok
+  """
   def save(deck, filename) do
     binary = :erlang.term_to_binary(deck)
     File.write(filename, binary)
@@ -33,29 +60,7 @@ defmodule Cards do
     end
   end
 
-  # def save(deck,filename)  do
-  #   # binary = :erlang.term_to_binary(deck)
-  #   # File.write(filename, binary)
-
-  #   # convert to txt  instead
-  #   # File.write(filename <> ".txt", Enum.join(deck, "\n"))
-  #   # same function but here we check if file name contains .txt extension
-  #   if String.ends_with?(filename, ".txt") do
-  #     File.write(filename, Enum.join(deck, "\n"))
-  #   else
-  # File.write(filename <> ".txt", Enum.join(deck, "\n"))
-  #   end
-  # end
-  #
-  # def save(deck, filename) do
-  #   File.write((if String.ends_with?(filename, ".txt"), do: filename, else: filename <> ".txt"), Enum.join(deck, "\n"))
-  # end
-  #
-  #
-  #
   def create_hand(hand_size) do
-    create_deck()
-    |> shuffle()
-    |> deal(hand_size)
+    create_deck() |> shuffle() |> deal(hand_size)
   end
 end
